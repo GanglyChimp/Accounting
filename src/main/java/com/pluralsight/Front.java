@@ -6,22 +6,41 @@ import java.util.Scanner;
 
 public class Front
 {
-    Scanner userInput = new Scanner();
+    Scanner userInput = new Scanner(System.in);
     static void main()
     {
-        System.out.println("~~~~~~~~");
-        System.out.println("Welcome");
-        System.out.println("~~~~~~~~");
-        System.out.println("what would you like to do?");
-        System.out.println();
-        System.out.println("a");
+        FileReader fileReader = new FileReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(FileReader);
+        while (true) {
+            System.out.println("\n===== Home Screen =====");
+            System.out.println("D) Add Deposit");
+            System.out.println("P) Make Payment");
+            System.out.println("L) Ledger");
+            System.out.println("X) Exit");
+            System.out.print("Choose: ");
+            Scanner userInput = nextln();
+            String choice = scanner.nextLine().trim().toUpperCase();
+
+            switch (choice)
+            {
+                case "D":
+                System.out.println("Add a Deposit");
+          //      addDeposit();
+                case "P":
+                System.out.println("Make a payment selected");
+          //      makePayment();
+                case "L":
+                System.out.println("Display My ledger");
+
+          //      ledgerScreen();
+                case "X":
+
+                    System.out.println("Goodbye!");
+                    return; // exits homeScreen → ends program
 
 
-        switch()
-        {
-            case "1";
-            System.out.println("1) Make a Deposit");
-            break;
+                    System.out.println("Invalid option.");
+            }
 
 
         }
