@@ -13,6 +13,8 @@ public class Front
     static void main(){
 
     homeScreen();
+   // addDeposite();
+
 
 
 
@@ -51,12 +53,12 @@ public class Front
                                 //      ledgerScreen();
                             case "X":
 
-                                System.out.println("Goodbye!");
+                                System.out.println("come again!");
                                 return;
                             // exits homeScreen → ends program
 
                             default:
-                                System.out.println("Invalid option.");
+                                System.out.println("not available.");
                         }
 
 
@@ -65,7 +67,11 @@ public class Front
                 {
 
                 }
-            }
+
+      //  Static void addDeposit();
+
+
+    }
 }//requirements
            //home screen
             //display welcome
