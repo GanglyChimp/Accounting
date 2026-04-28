@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Front {
 
-    static void homeScreen ()
+    static void main ()
     {
         homeScreen displayHome = new homeScreen()
         {

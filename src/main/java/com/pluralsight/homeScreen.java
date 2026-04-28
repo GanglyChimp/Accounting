@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class homeScreen
 {
 
-    static void main()
+    static void homePage()
   {
 
 
