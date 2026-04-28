@@ -10,7 +10,7 @@ public class Front {
 
     static void main ()
     {
-        homeScreen displayHome = new homeScreen()
+        homeScreen homePage = new homeScreen()
         {
 
         };
