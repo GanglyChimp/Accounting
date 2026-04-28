@@ -43,5 +43,4 @@ public class Front {
         //exit
         //prompt the user if they want to exit the program
 
-    }
 }
