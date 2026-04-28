@@ -1,24 +1,33 @@
 package com.pluralsight;
 
+import com.sun.tools.javac.Main;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Scanner;
 
 public class Front {
 
-    static void main()
+    static void homeScreen ()
     {
+        homeScreen displayHome = new homeScreen()
+        {
+
+        };
+
+
 
     }
-
+    //requirements
         //home screen
-        //display welcome
-        //prompt user selection
-        //select 1) 2) 3) menu options
-        //switch loop
-        //if not then print wrong options.
-        //prompt exit
-        //go to options
+             //display welcome
+                 //prompt user selection
+                      //select 1) 2) 3) menu options
+                             //switch loop
+                                 //if not then print wrong options.
+                          //prompt exit
+
+
         // deposite option
         //make payment
         //go to ledger
