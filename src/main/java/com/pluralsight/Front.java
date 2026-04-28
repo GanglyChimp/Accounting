@@ -26,17 +26,20 @@ public class Front
                 case "D":
                 System.out.println("Add a Deposit");
           //      addDeposit();
+                    //array
                 case "P":
                 System.out.println("Make a payment selected");
           //      makePayment();
+                    //array
                 case "L":
                 System.out.println("Display My ledger");
-
+            //array
           //      ledgerScreen();
                 case "X":
 
                     System.out.println("Goodbye!");
-                    return; // exits homeScreen → ends program
+                    return;
+                    // exits homeScreen → ends program
 
 
                     System.out.println("Invalid option.");
