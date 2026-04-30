@@ -21,7 +21,7 @@ public class addDeposite
     static void addTransaction(boolean isDeposit) {
 
 
-       //try and catch to loop adding/ subtracting into account
+       //try and catch for adding and subtracting into csv file
         try {
             System.out.print("Description: ");
             String description = scanner.nextLine().trim();
@@ -34,7 +34,7 @@ public class addDeposite
 
 
             //math call makes it so I can enter positive or negative without making a
-            //seperate function
+            //separate function
 
             if (!isDeposit) {
                 amount = -Math.abs(amount);
@@ -49,7 +49,19 @@ public class addDeposite
 
             //splitting information
             String line = date + "|" + time + "|" + description + "|" + vendor + "|" + amount;
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
+               //skipping header, writing next line
+                writer.newLine();
+                writer.write(line);
+            }
+
+            System.out.println("Saved information");
+
+        } catch (NumberFormatException e) {
+            System.out.println("Could you please enter a number?");
+        } catch (IOException e) {
+            System.out.println("There is a problem with what you entered: " + e.getMessage());
         }
     }
-
 }
