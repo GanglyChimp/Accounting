@@ -18,5 +18,38 @@ public class addDeposite
     static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     //scanner for userInput
     static Scanner scanner = new Scanner(System.in);
+    static void addTransaction(boolean isDeposit) {
+
+
+       //try and catch to loop adding/ subtracting into account
+        try {
+            System.out.print("Description: ");
+            String description = scanner.nextLine().trim();
+
+            System.out.print("Vendor: ");
+            String vendor = scanner.nextLine().trim();
+
+            System.out.print("Amount: ");
+            double amount = Double.parseDouble(scanner.nextLine().trim());
+
+
+            //math call makes it so I can enter positive or negative without making a
+            //seperate function
+
+            if (!isDeposit) {
+                amount = -Math.abs(amount);
+            } else {
+                amount = Math.abs(amount);
+            }
+
+            //call to the top to format time and date
+            String date = LocalDate.now().format(dateTimeFormatter);
+            String time = LocalTime.now().format(dateClockTime);
+
+
+            //splitting information
+            String line = date + "|" + time + "|" + description + "|" + vendor + "|" + amount;
+        }
+    }
 
 }
