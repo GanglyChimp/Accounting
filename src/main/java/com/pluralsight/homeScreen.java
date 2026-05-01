@@ -1,20 +1,24 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
+
 import java.util.Scanner;
 
 public class homeScreen
 {
 
     static void homePage()
-  {
+  {        try {
+
+            //welcome display
+            System.out.println("==============================");
+            System.out.println("  Welcome to Accounting App");
+            System.out.println("==============================");
 
 
-        try {
-          FileReader fileReader = new FileReader("transactions.csv");
+
           Scanner userInput = new Scanner(System.in);
-          BufferedReader bufferedReader = new BufferedReader(fileReader);
+
 
           while (true) {
               System.out.println("\n===== Home Screen =====");
@@ -28,16 +32,16 @@ public class homeScreen
               switch (choice) {
                   case "D":
                       System.out.println("Add a Deposit");
-                      //      addDeposit();
-                      //array
+                      addDeposite.addTransaction(false);
+                      break;
                   case "P":
                       System.out.println("Make a payment selected");
-                      //      makePayment();
-                      //array
+                      addDeposite.addTransaction(false);
+                      break;
                   case "L":
                       System.out.println("Display My ledger");
-                      //array
-                      //      ledgerScreen();
+                      ledgerHome.ledgerScreen(userInput);
+                      break;
                   case "X":
 
                       System.out.println("Goodbye!");
@@ -55,4 +59,5 @@ public class homeScreen
 
           }
   }
+
  }
