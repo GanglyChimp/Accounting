@@ -2,6 +2,7 @@ package com.pluralsight;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class reportScreen {
@@ -35,7 +36,7 @@ public class reportScreen {
             LocalDate today = LocalDate.now();
 
             // YearMonth makes it easy to get the first and last day of a month
-            YearMonth lastMonth = YearMonth.from(today).minusMonths(1);
+                       YearMonth lastMonth = YearMonth.from(today).minusMonths(1);
 
             // startDates holds the beginning date for each report minus 1
             LocalDate[] startDates = {
@@ -53,7 +54,43 @@ public class reportScreen {
                     LocalDate.of(today.getYear() - 1, 12, 31)
             };
 
-        }
+            if (choice == 0) {
+                // stop the loop and go back to ledger
+                inReports = false;
 
+            } else if (choice >= 1 && choice <= 4) {
+                // use choice - 1 as the array index to grab the right date range and display results
+                ArrayList<transactionData> allTransactions = ledgerHome.newToOldTransactions();
+                ArrayList<transactionData> filtered = filterByDate(allTransactions, startDates[choice - 1], endDates[choice - 1]);
+                ledgerHome.displayTransactions(filtered);
+
+            } else if (choice == 5) {
+                // loop through all transactions and print any that match the vendor name
+                System.out.print("Enter vendor name: ");
+                String vendorSearch = input.nextLine().trim().toLowerCase();
+
+                //print results
+
+
+
+            } else {
+                // anything outside 0 through 5 is not valid
+                System.out.println("Invalid option, please try again.");
+            }
+        }
+    }
+
+    // takes a list of transactions and returns only the ones within the date range
+    static ArrayList<transactionData> filterByDate(ArrayList<transactionData> transactions, LocalDate start, LocalDate end) {
+
+        ArrayList<transactionData> filtered = new ArrayList<>();
+
+        for (transactionData t : transactions) {
+            // !isBefore(start) and !isAfter(end) keeps only dates inside the range
+            if (!t.getDate().isBefore(start) && !t.getDate().isAfter(end)) {
+                filtered.add(t);
+            }
+        }
+        return filtered;
     }
 }
