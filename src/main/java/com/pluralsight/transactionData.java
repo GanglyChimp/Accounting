@@ -1,71 +1,64 @@
 package com.pluralsight;
 
-public class transactionData
-{
-    // defining method
-    String date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+public class transactionData {
+
+    // these are the fields that make up a single transaction
+    LocalDate date;
+    LocalTime time;
     String description;
     String vendor;
     double amount;
-    String type;
 
-
-    //creating constructors
-    public transactionData( String date, String description, String vendor, double amount, String type)
-    {
+    // constructor - this runs when we create a new transaction object
+    // it takes in all the information and stores it in the fields above
+    public transactionData(LocalDate date, LocalTime time, String description, String vendor, double amount) {
         this.date = date;
+        this.time = time;
         this.description = description;
         this.vendor = vendor;
-        this.amount=amount;
-        this.type = type;
+        this.amount = amount;
     }
 
-
-    //formating csv
-    public String csvFormat()
-    {
-        return  date + "|" + description + "|" + vendor + "|" + amount + "|" + type;
-
+    // if the amount is positive it is a deposit
+    public boolean isDeposit() {
+        return amount > 0;
     }
 
-    public String getDate() {
+    // if the amount is negative it is a payment
+    public boolean isPayment() {
+        return amount < 0;
+    }
+
+    // getters - these let other classes read the fields without changing them
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public LocalTime getTime() {
+        return time;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getVendor() {
         return vendor;
-    }
-
-    public void setVendor(String vendor) {
-        this.vendor = vendor;
     }
 
     public double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    // toString controls how a transaction looks when we print it
+    // the format makes everything line up in neat columns
+     public String toString()
+     {
+        return String.format("%-12s %-10s %-25s %-20s %10.2f",
+                date, time, description, vendor, amount);
     }
 }
 
