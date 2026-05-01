@@ -1,24 +1,11 @@
 package com.pluralsight;
 
-import com.sun.tools.javac.Main;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.Scanner;
-
-public class Front {
-
-    static void main ()
-    {
-        homeScreen homePage = new homeScreen()
-        {
-
-        };
-
-
-
+public class Front
+{
+    public static void main(String[] args) {
+        homeScreen.homePage();
     }
-    //requirements
+}
         //home screen
              //display welcome
                  //prompt user selection
@@ -29,8 +16,8 @@ public class Front {
 
 
         // deposite option
-        //make payment
-        //go to ledger
+                //make payment
+                     //go to ledger
 
 
         //ledger
@@ -52,4 +39,4 @@ public class Front {
         //exit
         //prompt the user if they want to exit the program
 
-}
+
